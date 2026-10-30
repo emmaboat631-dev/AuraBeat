@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AuraBeat</string>
+    <string name="tagline">Feel the sound</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_search">Search</string>
+    <string name="nav_player">Player</string>
+    <string name="nav_library">Library</string>
+    <string name="nav_profile">Profile</string>
+</resources>

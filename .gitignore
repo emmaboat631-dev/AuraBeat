@@ -1,0 +1,42 @@
+## Android / Gradle
+*.iml
+.gradle
+/local.properties
+/.idea
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+.kotlin
+
+## Build outputs (never commit release binaries)
+*.apk
+*.aab
+/app/release
+/app/build
+
+## Signing — NEVER commit these
+*.jks
+*.keystore
+keystore.properties
+
+## Third-party binaries we don't own (Spotify SDK)
+/app/libs/*.aar
+/app/libs/*.jar
+!/app/libs/.gitkeep
+
+## OS junk
+Thumbs.db
+
+## Bundled audio — personal music, not ours to redistribute
+/app/src/main/res/raw/*.mp3
+/app/src/main/res/raw/*.m4a
+/app/src/main/res/raw/*.ogg
+/app/src/main/res/raw/*.wav
+/app/src/main/res/raw/*.flac
+!/app/src/main/res/raw/.gitkeep
+
+## Signing credentials in gradle.properties — real passwords, keep local
+/gradle.properties

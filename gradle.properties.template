@@ -1,0 +1,17 @@
+# Copy this file to `gradle.properties` in your home Gradle directory
+# (~/.gradle/gradle.properties) or the project root and fill in real
+# values before running `./gradlew :app:assembleRelease`.
+#
+# Never commit the real gradle.properties with these values set.
+
+# Absolute path to your release keystore (.jks)
+AURABEAT_KEYSTORE=/absolute/path/to/aurabeat-release.jks
+
+# Password you set when creating the keystore
+AURABEAT_KEYSTORE_PASSWORD=
+
+# Alias for the key inside the keystore (default: aurabeat)
+AURABEAT_KEY_ALIAS=aurabeat
+
+# Password for that key (often same as the keystore password)
+AURABEAT_KEY_PASSWORD=

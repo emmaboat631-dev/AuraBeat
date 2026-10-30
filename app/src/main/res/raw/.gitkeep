@@ -1,0 +1,4 @@
+Drop your own `.mp3` / `.m4a` / `.ogg` files here (lowercase names, underscores
+only — no spaces or dashes). Then wire them into `data/MockCatalog.kt`
+using `android.resource://com.aurabeat.app/raw/<filename_without_extension>`.
+See README for the full flow.

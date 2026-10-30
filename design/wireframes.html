@@ -1,0 +1,429 @@
+<title>AuraBeat Wireframes</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  color-scheme: dark;
+  --bg: #09070D; --surface: #121018; --surface-2: #19151F; --line: rgba(255,255,255,0.08);
+  --primary: #7C3AED; --primary-2: #A855F7; --primary-glow: rgba(124,58,237,0.35); --accent: #FF7A00;
+  --text: #FFFFFF; --text-2: #A1A1AA; --text-3: #71717A;
+  --display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --body: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+}
+html, body { background: var(--bg); }
+body { font-family: var(--body); color: var(--text); padding-block: 40px; padding-inline: 24px;
+  background: radial-gradient(1200px 800px at 85% -10%, rgba(124,58,237,0.10), transparent 60%), radial-gradient(900px 600px at -10% 40%, rgba(255,122,0,0.06), transparent 60%), var(--bg); }
+* { box-sizing: border-box; }
+.deck-head { max-width: 1360px; margin: 0 auto 48px; }
+.eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--text-3); display: inline-flex; align-items: center; gap: 10px; }
+.eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--primary-2); display: inline-block; }
+.deck-title { font-family: var(--display); font-weight: 700; font-size: clamp(38px, 6vw, 72px); line-height: 0.98; letter-spacing: -0.02em; margin: 12px 0 10px; text-wrap: balance; background: linear-gradient(180deg, #fff 30%, rgba(255,255,255,0.72)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.deck-sub { color: var(--text-2); max-width: 640px; font-size: 15px; line-height: 1.6; }
+.deck-meta { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 14px 26px; font-family: var(--mono); font-size: 11px; color: var(--text-3); }
+.deck-meta b { color: var(--text); font-weight: 500; }
+.tokens { max-width: 1360px; margin: 0 auto 56px; display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 24px; }
+@media (max-width: 900px) { .tokens { grid-template-columns: 1fr; } }
+.token-card { border: 1px solid var(--line); border-radius: 20px; padding: 20px 22px; background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); }
+.token-card h4 { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; color: var(--text-3); font-weight: 500; text-transform: uppercase; margin: 0 0 16px; }
+.swatches { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; }
+.swatch { aspect-ratio: 1/1; border-radius: 12px; border: 1px solid var(--line); display: flex; flex-direction: column; justify-content: flex-end; padding: 8px; font-family: var(--mono); font-size: 9px; }
+.swatch .name { color: rgba(255,255,255,0.9); display: block; }
+.swatch .hex { color: rgba(255,255,255,0.55); display: block; }
+.type-spec { display: grid; gap: 12px; }
+.type-line { display: flex; align-items: baseline; gap: 12px; padding-bottom: 10px; border-bottom: 1px dashed var(--line); }
+.type-line:last-child { border: 0; padding-bottom: 0; }
+.type-role { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-3); text-transform: uppercase; width: 76px; flex-shrink: 0; }
+.type-sample { color: var(--text); font-size: 20px; }
+.type-sample.display { font-family: var(--display); font-weight: 600; letter-spacing: -0.01em; font-size: 24px; }
+.type-sample.mono { font-family: var(--mono); font-size: 13px; color: var(--text-2); }
+.grid { max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 40px 28px; }
+.screen-cell { display: flex; flex-direction: column; align-items: center; }
+.screen-caption { margin-top: 18px; text-align: center; display: flex; flex-direction: column; gap: 4px; }
+.screen-index { font-family: var(--mono); font-size: 10px; letter-spacing: 0.24em; color: var(--primary-2); text-transform: uppercase; }
+.screen-name { font-family: var(--display); font-weight: 600; font-size: 18px; color: var(--text); }
+.screen-note { font-size: 12px; color: var(--text-3); line-height: 1.5; max-width: 240px; }
+.phone { --w: 280px; --h: 600px; width: var(--w); height: var(--h); border-radius: 38px; padding: 8px; background: linear-gradient(160deg, #2a2338, #0d0a14); box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06), 0 0 40px -10px var(--primary-glow); position: relative; }
+.phone-screen { width: 100%; height: 100%; border-radius: 32px; overflow: hidden; background: var(--bg); position: relative; display: flex; flex-direction: column; }
+.notch { position: absolute; top: 6px; left: 50%; transform: translateX(-50%); width: 72px; height: 18px; border-radius: 12px; background: #05040a; z-index: 40; }
+.status { position: absolute; top: 8px; left: 0; right: 0; display: flex; justify-content: space-between; padding: 0 18px; z-index: 30; font-family: var(--mono); font-size: 9px; color: var(--text); }
+.status .dots i { width: 3px; height: 3px; background: var(--text); border-radius: 50%; display: inline-block; margin-left: 2px; }
+.status .battery { width: 18px; height: 8px; border-radius: 2px; border: 1px solid rgba(255,255,255,0.6); position: relative; }
+.status .battery::after { content:""; position:absolute; left:1px; top:1px; bottom:1px; width: 12px; background: var(--text); border-radius: 1px; }
+.body { flex: 1; padding: 34px 14px 0; overflow: hidden; position: relative; }
+.body.no-pad { padding: 0; }
+.nav { position: absolute; left: 8px; right: 8px; bottom: 10px; background: var(--surface-2); border-radius: 22px; height: 52px; display: grid; grid-template-columns: repeat(5, 1fr); align-items: center; padding: 0 6px; z-index: 20; border: 1px solid var(--line); }
+.nav-item { display: flex; flex-direction: column; align-items: center; gap: 2px; color: var(--text-3); font-size: 8px; }
+.nav-item svg { width: 18px; height: 18px; }
+.nav-item.active { color: var(--primary-2); }
+.nav-item.active .nav-icon { background: rgba(124,58,237,0.15); }
+.nav-icon { width: 30px; height: 22px; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+.mini { position: absolute; left: 12px; right: 12px; bottom: 70px; background: var(--surface-2); border-radius: 16px; padding: 6px; display: flex; align-items: center; gap: 10px; z-index: 20; border: 1px solid var(--line); }
+.mini .art { width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0; }
+.mini .info { flex: 1; min-width: 0; overflow: hidden; }
+.mini .title { font-size: 11px; font-weight: 600; color: var(--text); overflow:hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mini .artist { font-size: 9px; color: var(--text-2); overflow:hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mini .ctrl svg { width: 18px; height: 18px; color: var(--text); margin-right: 6px; }
+.mini-bar { position: absolute; left: 12px; right: 12px; bottom: 68px; height: 2px; z-index: 21; }
+.mini-bar .fill { height: 2px; background: var(--primary); border-radius: 1px; }
+.section-head { display:flex; align-items: baseline; justify-content: space-between; padding: 0 6px; margin: 14px 0 10px; }
+.section-head h5 { font-family: var(--display); font-weight: 600; font-size: 15px; color: var(--text); margin: 0; }
+.section-head span { font-size: 9px; color: var(--primary-2); font-weight: 600; }
+.h-scroll { display: flex; gap: 8px; overflow: hidden; padding: 0 6px; }
+.art { border-radius: 14px; background: linear-gradient(140deg, var(--primary-2), var(--primary)); position: relative; overflow: hidden; flex-shrink: 0; }
+.p-purple { background: linear-gradient(140deg, #A855F7, #1E1B4B); }
+.p-orange { background: linear-gradient(140deg, #FF7A00, #3B0764); }
+.p-pink   { background: linear-gradient(140deg, #EC4899, #3B0764); }
+.p-cyan   { background: linear-gradient(140deg, #06B6D4, #1E1B4B); }
+.p-violet { background: linear-gradient(140deg, #8B5CF6, #0B0714); }
+.p-amber  { background: linear-gradient(140deg, #F59E0B, #3B0764); }
+.p-deep   { background: linear-gradient(140deg, #7C3AED, #09070D); }
+.splash-body { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; background: radial-gradient(60% 40% at 50% 40%, rgba(124,58,237,0.35), transparent 70%), var(--bg); padding: 0 24px; }
+.splash-mark { width: 118px; height: 118px; border-radius: 50%; background: linear-gradient(140deg, var(--primary-2), var(--primary)); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 60px 4px var(--primary-glow); margin-bottom: 24px; position: relative; }
+.splash-mark::before { content: ""; position: absolute; inset: -12px; border-radius: 50%; border: 1px solid rgba(168,85,247,0.35); }
+.splash-mark::after { content: ""; position: absolute; inset: -26px; border-radius: 50%; border: 1px dashed rgba(168,85,247,0.18); }
+.splash-mark svg { width: 52px; height: 52px; color: #fff; }
+.splash-body h1 { font-family: var(--display); font-weight: 700; font-size: 34px; letter-spacing: -0.02em; margin: 0; }
+.splash-body p { font-size: 12px; color: var(--text-2); margin: 6px 0 30px; letter-spacing: 0.14em; text-transform: uppercase; font-family: var(--mono); }
+.splash-dot-row { display: flex; gap: 6px; }
+.splash-dot-row i { width: 6px; height: 6px; border-radius: 50%; background: var(--primary-2); opacity: 0.4; }
+.splash-dot-row i:nth-child(2) { opacity: 0.8; }
+.home-header { display: flex; align-items: center; gap: 10px; padding: 0 6px; margin-bottom: 12px; }
+.home-header .greet { flex: 1; }
+.home-header .greet .hi { font-size: 10px; color: var(--text-2); }
+.home-header .greet .who { font-family: var(--display); font-weight: 600; font-size: 17px; color: var(--text); }
+.home-header .avatar { width: 34px; height: 34px; border-radius: 50%; background: var(--surface-2); display: flex; align-items: center; justify-content: center; }
+.home-header .avatar svg { width: 16px; height: 16px; color: var(--text); }
+.search-pill { background: var(--surface-2); border-radius: 14px; padding: 10px 12px; display: flex; align-items: center; gap: 8px; margin: 0 6px; }
+.search-pill svg { width: 14px; height: 14px; color: var(--text-3); }
+.search-pill .txt { color: var(--text-3); font-size: 11px; }
+.genre-chip { height: 46px; min-width: 96px; padding: 10px; border-radius: 14px; display: flex; align-items: flex-end; font-family: var(--display); font-weight: 600; font-size: 12px; color: #fff; }
+.album-tile { width: 100px; }
+.album-tile .art { width: 100px; height: 100px; border-radius: 14px; }
+.album-tile .t { font-size: 11px; font-weight: 600; margin-top: 6px; color: var(--text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.album-tile .s { font-size: 9px; color: var(--text-2); }
+.artist-tile { width: 60px; text-align: center; }
+.artist-tile .avatar { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-family: var(--display); font-weight: 600; font-size: 22px; }
+.artist-tile .name { font-size: 9px; margin-top: 4px; color: var(--text); }
+.song-row { display: flex; align-items: center; gap: 10px; padding: 6px; }
+.song-row .art { width: 34px; height: 34px; border-radius: 8px; }
+.song-row .meta { flex: 1; min-width: 0; }
+.song-row .meta .t { font-size: 11px; font-weight: 600; color: var(--text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.song-row .meta .a { font-size: 9px; color: var(--text-2); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.song-row .dur { font-family: var(--mono); font-size: 9px; color: var(--text-3); }
+.song-row.playing .meta .t { color: var(--primary-2); }
+.song-row .eq { color: var(--primary-2); display: inline-flex; align-items: end; gap: 1px; }
+.song-row .eq i { width: 2px; background: var(--primary-2); border-radius: 1px; }
+.song-row .eq i:nth-child(1) { height: 6px; } .song-row .eq i:nth-child(2) { height: 9px; } .song-row .eq i:nth-child(3) { height: 5px; }
+.search-field { background: var(--surface-2); border-radius: 14px; padding: 12px; display: flex; align-items: center; gap: 8px; margin: 0 6px 12px; border: 1px solid var(--line); }
+.search-field svg { width: 14px; height: 14px; color: var(--text-3); }
+.search-field .caret { width: 1px; height: 14px; background: var(--primary-2); margin-left: 2px; }
+.search-field .val { color: var(--text); font-size: 12px; font-weight: 500; }
+.search-filters { display: flex; gap: 6px; padding: 0 6px; margin-bottom: 12px; }
+.chip { height: 26px; padding: 0 12px; border-radius: 999px; display: inline-flex; align-items: center; font-size: 10px; color: var(--text-2); background: var(--surface-2); border: 1px solid var(--line); }
+.chip.on { background: var(--primary); color: #fff; border-color: transparent; }
+.np-body { background: linear-gradient(180deg, rgba(124,58,237,0.35), transparent 55%), var(--bg); padding: 30px 14px 0; display: flex; flex-direction: column; height: 100%; }
+.np-topbar { display: flex; align-items: center; justify-content: space-between; padding: 6px 0 10px; }
+.np-topbar svg { width: 16px; height: 16px; color: var(--text); }
+.np-topbar .middle { text-align: center; }
+.np-topbar .middle .l { font-size: 8px; color: var(--text-2); letter-spacing: 0.14em; text-transform: uppercase; font-family: var(--mono); }
+.np-topbar .middle .r { font-size: 11px; color: var(--text); font-weight: 500; }
+.np-art { width: 88%; aspect-ratio: 1/1; border-radius: 24px; margin: 6px auto 20px; box-shadow: 0 24px 40px -8px rgba(0,0,0,0.6); }
+.np-title-row { display: flex; align-items: center; gap: 8px; padding: 0 4px; }
+.np-title-row .t { flex: 1; }
+.np-title-row .title { font-family: var(--display); font-weight: 600; font-size: 20px; letter-spacing: -0.01em; color: var(--text); }
+.np-title-row .artist { font-size: 12px; color: var(--text-2); margin-top: 2px; }
+.np-title-row .fav { color: var(--primary-2); }
+.waveform { height: 62px; margin: 20px 4px 6px; display: flex; align-items: center; gap: 3px; }
+.waveform i { flex: 1; background: rgba(255,255,255,0.16); border-radius: 2px; }
+.waveform i.on { background: var(--primary); }
+.waveform i.head { background: var(--primary-2); box-shadow: 0 0 8px var(--primary-glow); }
+.timings { display: flex; justify-content: space-between; padding: 0 6px; font-family: var(--mono); font-size: 10px; color: var(--text-3); }
+.np-controls { display: flex; justify-content: space-between; align-items: center; padding: 24px 10px 8px; }
+.np-controls .btn { color: var(--text-2); }
+.np-controls .btn.active { color: var(--primary-2); }
+.np-controls .btn.big svg { width: 26px; height: 26px; color: var(--text); }
+.np-controls .play { width: 62px; height: 62px; border-radius: 50%; background: linear-gradient(140deg, var(--primary-2), var(--primary)); box-shadow: 0 10px 30px -8px var(--primary-glow); display: flex; align-items: center; justify-content: center; color: #fff; }
+.np-controls .play svg { width: 26px; height: 26px; }
+.lyrics-btn { align-self: center; margin-top: 6px; display: inline-flex; align-items: center; gap: 6px; color: var(--text-2); font-size: 11px; }
+.lyrics-btn svg { width: 12px; height: 12px; }
+.pl-hero { height: 240px; position: relative; padding: 30px 14px 12px; display: flex; flex-direction: column; justify-content: flex-end; }
+.pl-hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(124,58,237,0.5), var(--bg)); }
+.pl-hero .back { width: 22px; height: 22px; position: absolute; top: 34px; left: 12px; color: #fff; }
+.pl-hero .art { width: 108px; height: 108px; border-radius: 16px; margin-bottom: 12px; }
+.pl-hero .title { font-family: var(--display); font-weight: 700; font-size: 22px; letter-spacing: -0.01em; }
+.pl-hero .meta { font-size: 11px; color: var(--text-2); margin-top: 2px; }
+.pl-actions { display: flex; gap: 8px; padding: 12px 14px; align-items: center; }
+.pl-actions .play-pill { flex: 1; height: 40px; border-radius: 20px; background: linear-gradient(140deg, var(--primary-2), var(--primary)); display: flex; align-items: center; justify-content: center; gap: 6px; color: #fff; font-weight: 600; font-size: 12px; }
+.pl-actions .shuffle-pill { flex: 1; height: 40px; border-radius: 20px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; gap: 6px; color: #fff; font-weight: 600; font-size: 12px; }
+.pl-actions .fav { width: 40px; height: 40px; border-radius: 50%; background: var(--surface-2); display: flex; align-items: center; justify-content: center; color: #fff; }
+.pl-actions svg { width: 14px; height: 14px; }
+.lib-head { padding: 0 6px; display: flex; align-items: center; margin-bottom: 10px; }
+.lib-head h2 { font-family: var(--display); font-weight: 700; font-size: 22px; margin: 0; flex: 1; }
+.lib-head .plus svg { width: 22px; height: 22px; color: var(--text); }
+.quick-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 0 6px; margin-bottom: 14px; }
+.quick-tile { height: 92px; border-radius: 18px; padding: 12px; display: flex; flex-direction: column; justify-content: space-between; color: #fff; }
+.quick-tile .icon { width: 30px; height: 30px; border-radius: 50%; background: rgba(255,255,255,0.18); display: flex; align-items: center; justify-content: center; }
+.quick-tile .icon svg { width: 14px; height: 14px; }
+.quick-tile .t { font-family: var(--display); font-weight: 600; font-size: 13px; }
+.quick-tile .s { font-size: 9px; color: rgba(255,255,255,0.75); }
+.queue-topbar { padding: 0 6px; display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.queue-topbar svg { width: 16px; height: 16px; color: var(--text); }
+.queue-topbar h3 { font-family: var(--display); font-weight: 700; font-size: 20px; margin: 0; }
+.q-label { font-family: var(--mono); font-size: 9px; color: var(--text-3); letter-spacing: 0.16em; text-transform: uppercase; padding: 6px; }
+.q-row { display: flex; align-items: center; gap: 10px; padding: 6px; }
+.q-row .art { width: 36px; height: 36px; border-radius: 8px; }
+.q-row .meta { flex: 1; min-width: 0; }
+.q-row .meta .t { font-size: 11px; font-weight: 600; color: var(--text); }
+.q-row .meta .a { font-size: 9px; color: var(--text-2); }
+.q-row.current .meta .t { color: var(--primary-2); }
+.q-row .drag svg { width: 14px; height: 14px; color: var(--text-3); }
+.set-head { padding: 0 6px; margin-bottom: 12px; }
+.set-head h2 { font-family: var(--display); font-weight: 700; font-size: 22px; margin: 0; }
+.profile-card { margin: 0 6px 12px; padding: 12px; border-radius: 16px; background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)); border: 1px solid var(--line); display: flex; align-items: center; gap: 12px; }
+.profile-card .av { width: 46px; height: 46px; border-radius: 50%; background: linear-gradient(140deg, var(--primary-2), var(--primary)); display: flex; align-items: center; justify-content: center; color: #fff; font-family: var(--display); font-weight: 700; font-size: 20px; }
+.profile-card .n { font-family: var(--display); font-weight: 600; font-size: 13px; }
+.profile-card .p { font-size: 10px; color: var(--text-2); }
+.set-row { display: flex; align-items: center; gap: 10px; padding: 8px 6px; }
+.set-row .ic { width: 32px; height: 32px; border-radius: 10px; background: var(--surface-2); display: flex; align-items: center; justify-content: center; color: var(--primary-2); }
+.set-row .ic svg { width: 14px; height: 14px; }
+.set-row .info { flex: 1; }
+.set-row .info .t { font-size: 12px; font-weight: 500; color: var(--text); }
+.set-row .info .s { font-size: 9px; color: var(--text-3); }
+.set-row .chev svg { width: 12px; height: 12px; color: var(--text-3); }
+.ly-body { background: linear-gradient(180deg, rgba(124,58,237,0.28), transparent 45%), var(--bg); padding: 30px 14px 0; height: 100%; display: flex; flex-direction: column; }
+.ly-topbar { display: flex; align-items: center; padding: 4px 0 8px; }
+.ly-topbar svg { width: 16px; height: 16px; color: var(--text); }
+.ly-topbar h4 { flex: 1; text-align: center; font-family: var(--display); font-weight: 600; font-size: 14px; margin: 0; }
+.ly-song-strip { display: flex; align-items: center; gap: 10px; padding: 8px 4px 6px; }
+.ly-song-strip .art { width: 42px; height: 42px; border-radius: 10px; }
+.ly-song-strip .info .t { font-size: 12px; font-weight: 600; color: var(--text); }
+.ly-song-strip .info .a { font-size: 10px; color: var(--text-2); }
+.lyric-lines { flex: 1; padding: 8px 6px; overflow: hidden; display: flex; flex-direction: column; gap: 8px; text-align: center; font-family: var(--display); font-weight: 500; }
+.lyric-lines .line { font-size: 12px; color: rgba(255,255,255,0.42); }
+.lyric-lines .line.active { color: var(--text); }
+.ly-progress { height: 3px; background: rgba(255,255,255,0.08); border-radius: 2px; overflow: hidden; margin: 0 6px; }
+.ly-progress span { display: block; width: 44%; height: 100%; background: var(--primary); }
+.ly-mini-ctrl { display: flex; justify-content: space-evenly; align-items: center; padding: 10px 6px 4px; }
+.ly-mini-ctrl svg { width: 20px; height: 20px; color: var(--text); }
+.ly-mini-ctrl .p { color: var(--primary-2); }
+.ly-mini-ctrl .p svg { width: 28px; height: 28px; }
+.notes { max-width: 1360px; margin: 72px auto 0; padding: 32px; border-radius: 24px; background: linear-gradient(180deg, rgba(124,58,237,0.10), rgba(255,255,255,0.02)); border: 1px solid var(--line); }
+.notes h3 { font-family: var(--display); font-weight: 600; font-size: 22px; margin: 0 0 6px; }
+.notes p { color: var(--text-2); font-size: 14px; line-height: 1.6; margin: 0 0 16px; max-width: 720px; }
+.notes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 22px; margin-top: 8px; }
+.notes-grid h5 { font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.16em; font-size: 10px; color: var(--primary-2); margin: 0 0 6px; font-weight: 500; }
+.notes-grid ul { padding-left: 16px; margin: 0; color: var(--text-2); font-size: 12px; line-height: 1.7; }
+@media (max-width: 460px) { body { padding-inline: 16px; } .phone { --w: 260px; --h: 560px; } }
+</style>
+<div class="deck-head">
+  <span class="eyebrow">AuraBeat · v1 · Wireframes</span>
+  <h1 class="deck-title">Ten screens<br>for a music player<br>you can live in.</h1>
+  <p class="deck-sub">A cinematic dark identity in purple and orange, tuned for a native Android music app. Every screen below is a design spec — proportions, hierarchy and controls match the Compose implementation shipping in this repository.</p>
+  <div class="deck-meta"><span>PLATFORM · <b>Android · Compose · Media3</b></span><span>MOTIF · <b>Cinematic dark</b></span><span>ACCENT · <b>Aura Purple</b> · Orange</span><span>DENSITY · <b>Mobile-first</b></span></div>
+</div>
+<div class="tokens">
+  <div class="token-card"><h4>Color tokens</h4><div class="swatches">
+    <div class="swatch" style="background:#09070D"><span class="name">Background</span><span class="hex">#09070D</span></div>
+    <div class="swatch" style="background:#121018"><span class="name">Surface</span><span class="hex">#121018</span></div>
+    <div class="swatch" style="background:#19151F"><span class="name">Surface·2</span><span class="hex">#19151F</span></div>
+    <div class="swatch" style="background:#221C2E"><span class="name">Surface·3</span><span class="hex">#221C2E</span></div>
+    <div class="swatch" style="background:#7C3AED"><span class="name">Primary</span><span class="hex">#7C3AED</span></div>
+    <div class="swatch" style="background:#A855F7"><span class="name">Primary·2</span><span class="hex">#A855F7</span></div>
+    <div class="swatch" style="background:#FF7A00"><span class="name">Accent</span><span class="hex">#FF7A00</span></div>
+    <div class="swatch" style="background:linear-gradient(140deg,#A855F7,#7C3AED)"><span class="name">Gradient</span><span class="hex">Aura</span></div>
+  </div></div>
+  <div class="token-card"><h4>Typography</h4><div class="type-spec">
+    <div class="type-line"><span class="type-role">Display</span><span class="type-sample display">AuraBeat 22:04</span></div>
+    <div class="type-line"><span class="type-role">Body</span><span class="type-sample">Feel the sound</span></div>
+    <div class="type-line"><span class="type-role">Data</span><span class="type-sample mono">03:41 / 05:20</span></div>
+  </div></div>
+  <div class="token-card"><h4>Radii · elevation</h4><div class="type-spec">
+    <div class="type-line"><span class="type-role">Card</span><span class="type-sample mono">20 · 28 · 36 dp</span></div>
+    <div class="type-line"><span class="type-role">Pill</span><span class="type-sample mono">999 dp</span></div>
+    <div class="type-line"><span class="type-role">Glow</span><span class="type-sample mono">rgba(124,58,237,·35)</span></div>
+  </div></div>
+</div>
+<div class="grid">
+  <div class="screen-cell"><div class="phone"><div class="phone-screen"><div class="notch"></div><div class="status"><span>9:41</span><span class="dots"><i></i><i></i><i></i></span><span class="battery"></span></div>
+    <div class="splash-body"><div class="splash-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h2l2-6 4 12 4-9 2 5h4"/></svg></div><h1>AuraBeat</h1><p>Feel the sound</p><div class="splash-dot-row"><i></i><i></i><i></i></div></div>
+  </div></div><div class="screen-caption"><span class="screen-index">01 · Entrance</span><span class="screen-name">Splash</span><span class="screen-note">Radial glow, breathing logo mark, cinematic entry — no jump-cut to Home.</span></div></div>
+  <div class="screen-cell"><div class="phone"><div class="phone-screen"><div class="notch"></div><div class="status"><span>9:41</span><span class="dots"><i></i><i></i><i></i></span><span class="battery"></span></div>
+    <div class="body">
+      <div class="home-header"><div class="greet"><div class="hi">Good evening</div><div class="who">Ready to vibe?</div></div><div class="avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 17h5l-1.4-1.4A7 7 0 0 1 18 12V9a6 6 0 1 0-12 0v3a7 7 0 0 1-1.6 4.6L3 17h5m4 0v1a2 2 0 1 1-4 0v-1"/></svg></div></div>
+      <div class="search-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="txt">Songs, artists, albums</span></div>
+      <div class="section-head"><h5>Genres</h5></div>
+      <div class="h-scroll"><div class="genre-chip p-purple">Chill</div><div class="genre-chip p-orange">Electronic</div><div class="genre-chip p-cyan">Ambient</div></div>
+      <div class="section-head"><h5>New Releases</h5><span>See all</span></div>
+      <div class="h-scroll"><div class="album-tile"><div class="art p-purple"></div><div class="t">Horizons</div><div class="s">Neon Eclipse</div></div><div class="album-tile"><div class="art p-orange"></div><div class="t">Quarantine</div><div class="s">Faraday</div></div><div class="album-tile"><div class="art p-pink"></div><div class="t">Midnight Signals</div><div class="s">Nova Heights</div></div></div>
+      <div class="section-head"><h5>Popular Artists</h5></div>
+      <div class="h-scroll"><div class="artist-tile"><div class="avatar p-purple">N</div><div class="name">Neon Eclipse</div></div><div class="artist-tile"><div class="avatar p-orange">F</div><div class="name">Faraday</div></div><div class="artist-tile"><div class="avatar p-cyan">C</div><div class="name">Cascade</div></div><div class="artist-tile"><div class="avatar p-pink">M</div><div class="name">Meridian</div></div></div>
+    </div>
+    <div class="mini-bar"><div class="fill" style="width:42%"></div></div>
+    <div class="mini"><div class="art p-purple"></div><div class="info"><div class="title">Binary Pulse</div><div class="artist">Neon Eclipse</div></div><div class="ctrl"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6L18 6v12z"/></svg></div></div>
+    <div class="nav">
+      <div class="nav-item active"><div class="nav-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 3 10v11h6v-6h6v6h6V10z"/></svg></div>Home</div>
+      <div class="nav-item"><div class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div>Search</div>
+      <div class="nav-item"><div class="nav-icon"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2" fill="#09070D"/></svg></div>Player</div>
+      <div class="nav-item"><div class="nav-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 6h16v2H4zM4 11h16v2H4zM4 16h10v2H4z"/></svg></div>Library</div>
+      <div class="nav-item"><div class="nav-icon"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6z"/></svg></div>Profile</div>
+    </div>
+  </div></div><div class="screen-caption"><span class="screen-index">02 · Discovery</span><span class="screen-name">Home</span><span class="screen-note">Greeting, search pill, genres, new releases, artists — vertical scroll, horizontal sections.</span></div></div>
+  <div class="screen-cell"><div class="phone"><div class="phone-screen"><div class="notch"></div><div class="status"><span>9:41</span><span class="dots"><i></i><i></i><i></i></span><span class="battery"></span></div>
+    <div class="body">
+      <div class="section-head" style="margin:0 0 12px"><h5 style="font-size:22px">Search</h5></div>
+      <div class="search-field"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="val">neon</span><span class="caret"></span></div>
+      <div class="search-filters"><span class="chip on">All</span><span class="chip">Songs</span><span class="chip">Artists</span><span class="chip">Albums</span></div>
+      <div class="q-label">Songs</div>
+      <div class="song-row"><div class="art p-purple"></div><div class="meta"><div class="t">Binary Pulse</div><div class="a">Neon Eclipse</div></div><span class="dur">3:38</span></div>
+      <div class="song-row"><div class="art p-pink"></div><div class="meta"><div class="t">Euphoria Circuit</div><div class="a">Neon Eclipse</div></div><span class="dur">3:25</span></div>
+      <div class="q-label">Artists</div>
+      <div class="song-row"><div class="art p-purple" style="border-radius:50%"></div><div class="meta"><div class="t">Neon Eclipse</div><div class="a">1.2M followers</div></div></div>
+      <div class="q-label">Albums</div>
+      <div class="song-row"><div class="art p-deep"></div><div class="meta"><div class="t">Horizons</div><div class="a">Neon Eclipse · 2025</div></div></div>
+    </div>
+    <div class="nav">
+      <div class="nav-item"><div class="nav-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 3 10v11h6v-6h6v6h6V10z"/></svg></div>Home</div>
+      <div class="nav-item active"><div class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div>Search</div>
+      <div class="nav-item"><div class="nav-icon"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2" fill="#09070D"/></svg></div>Player</div>
+      <div class="nav-item"><div class="nav-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 6h16v2H4zM4 11h16v2H4zM4 16h10v2H4z"/></svg></div>Library</div>
+      <div class="nav-item"><div class="nav-icon"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6z"/></svg></div>Profile</div>
+    </div>
+  </div></div><div class="screen-caption"><span class="screen-index">03 · Find</span><span class="screen-name">Search</span><span class="screen-note">Debounced field, filter chips (All · Songs · Artists · Albums), grouped results.</span></div></div>
+  <div class="screen-cell"><div class="phone"><div class="phone-screen"><div class="notch"></div><div class="status"><span>9:41</span><span class="dots"><i></i><i></i><i></i></span><span class="battery"></span></div>
+    <div class="np-body">
+      <div class="np-topbar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg><div class="middle"><div class="l">Now Playing</div><div class="r">Horizons</div></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h13M4 12h13M4 18h13"/></svg></div>
+      <div class="np-art p-purple"></div>
+      <div class="np-title-row"><div class="t"><div class="title">Binary Pulse</div><div class="artist">Neon Eclipse</div></div><div class="fav"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.5-9.5-8.5C.7 9 3 5 7 5c2 0 3.5 1 5 3 1.5-2 3-3 5-3 4 0 6.3 4 4.5 7.5C19 16.5 12 21 12 21z"/></svg></div></div>
+      <div class="waveform" id="wf"></div>
+      <div class="timings"><span>01:34</span><span>03:38</span></div>
+      <div class="np-controls">
+        <div class="btn active"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 3l4 4-4 4V8h-4L8 12l4 4h4v-3l4 4-4 4v-3H8L4 12l4-4h8V3z"/></svg></div>
+        <div class="btn big"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6L18 6v12z"/></svg></div>
+        <div class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></div>
+        <div class="btn big"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6l8.5 6L6 18zM16 6h2v12h-2z"/></svg></div>
+        <div class="btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 3l3 3-3 3M20 6H8a4 4 0 0 0 0 8h1M7 21l-3-3 3-3M4 18h12a4 4 0 0 0 0-8h-1"/></svg></div>
+      </div>
+      <div class="lyrics-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4h11l3 3v13H6z"/><path d="M9 10h8M9 14h6"/></svg>Lyrics</div>
+    </div>
+  </div></div><div class="screen-caption"><span class="screen-index">04 · Centerpiece</span><span class="screen-name">Now Playing</span><span class="screen-note">Ambient gradient from artwork, canvas waveform, dominant purple play button.</span></div></div>
+  <div class="screen-cell"><div class="phone"><div class="phone-screen"><div class="notch"></div><div class="status"><span>9:41</span><span class="dots"><i></i><i></i><i></i></span><span class="battery"></span></div>
+    <div class="body no-pad">
+      <div class="pl-hero"><svg class="back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg><div class="art p-purple"></div><div class="title">Late Night Drive</div><div class="meta">Curated by AuraBeat · 14 songs · 52 min</div></div>
+      <div class="pl-actions">
+        <div class="play-pill"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Play All</div>
+        <div class="shuffle-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 3l3 3-3 3M20 6h-5l-9 12H4M7 6H4l3 3M20 18h-5l-3-4"/></svg>Shuffle</div>
+        <div class="fav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9.5-8.5C.7 9 3 5 7 5c2 0 3.5 1 5 3 1.5-2 3-3 5-3 4 0 6.3 4 4.5 7.5C19 16.5 12 21 12 21z"/></svg></div>
+      </div>
+      <div style="padding:0 8px;">
+        <div class="song-row playing"><div class="art p-orange"></div><div class="meta"><div class="t">Midnight Drive</div><div class="a">Faraday</div></div><span class="eq"><i></i><i></i><i></i></span></div>
+        <div class="song-row"><div class="art p-violet"></div><div class="meta"><div class="t">Quantum Solace</div><div class="a">Faraday</div></div><span class="dur">4:28</span></div>
+        <div class="song-row"><div class="art p-purple"></div><div class="meta"><div class="t">Holographic Dreams</div><div class="a">Neon Eclipse</div></div><span class="dur">4:01</span></div>
+        <div class="song-row"><div class="art p-amber"></div><div class="meta"><div class="t">Solar Drift</div><div class="a">Neon Eclipse</div></div><span class="dur">3:42</span></div>
+      </div>
+    </div>
+  </div></div><div class="screen-caption"><span class="screen-index">05 · Collection</span><span class="screen-name">Playlist</span><span class="screen-note">Hero gradient bleed from artwork, Play All + Shuffle pair, current-track equalizer indicator.</span></div></div>
+  <div class="screen-cell"><div class="phone"><div class="phone-screen"><div class="notch"></div><div class="status"><span>9:41</span><span class="dots"><i></i><i></i><i></i></span><span class="battery"></span></div>
+    <div class="body">
+      <div class="lib-head"><h2>Your Library</h2><div class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div></div>
+      <div class="quick-tiles">
+        <div class="quick-tile" style="background:linear-gradient(140deg,#A855F7,#7C3AED)"><div class="icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.5-9.5-8.5C.7 9 3 5 7 5c2 0 3.5 1 5 3 1.5-2 3-3 5-3 4 0 6.3 4 4.5 7.5C19 16.5 12 21 12 21z"/></svg></div><div><div class="t">Liked Songs</div><div class="s">28 tracks</div></div></div>
+        <div class="quick-tile" style="background:linear-gradient(140deg,#FF7A00,#3B0764)"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div><div class="t">Recently Played</div><div class="s">15 tracks</div></div></div>
+      </div>
+      <div class="section-head" style="margin:6px 0 6px"><h5>Your Playlists</h5></div>
+      <div style="padding:0 4px;">
+        <div class="song-row"><div class="art p-deep" style="width:44px;height:44px;border-radius:10px"></div><div class="meta"><div class="t" style="font-size:12px">Late Night Drive</div><div class="a">14 songs · AuraBeat</div></div></div>
+        <div class="song-row"><div class="art p-cyan" style="width:44px;height:44px;border-radius:10px"></div><div class="meta"><div class="t" style="font-size:12px">Focus Flow</div><div class="a">12 songs · AuraBeat</div></div></div>
+        <div class="song-row"><div class="art p-orange" style="width:44px;height:44px;border-radius:10px"></div><div class="meta"><div class="t" style="font-size:12px">Neon City</div><div class="a">18 songs · AuraBeat</div></div></div>
+        <div class="song-row"><div class="art p-purple" style="width:44px;height:44px;border-radius:10px"></div><div class="meta"><div class="t" style="font-size:12px">After Hours</div><div class="a">22 songs · AuraBeat</div></div></div>
+      </div>
+    </div>
+    <div class="nav">
+      <div class="nav-item"><div class="nav-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 3 10v11h6v-6h6v6h6V10z"/></svg></div>Home</div>
+      <div class="nav-item"><div class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div>Search</div>
+      <div class="nav-item"><div class="nav-icon"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2" fill="#09070D"/></svg></div>Player</div>
+      <div class="nav-item active"><div class="nav-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 6h16v2H4zM4 11h16v2H4zM4 16h10v2H4z"/></svg></div>Library</div>
+      <div class="nav-item"><div class="nav-icon"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6z"/></svg></div>Profile</div>
+    </div>
+  </div></div><div class="screen-caption"><span class="screen-index">06 · Personal</span><span class="screen-name">Library</span><span class="screen-note">Two gradient quick-tiles (Liked · Recent), user playlists below, create-new (+) in the header.</span></div></div>
+  <div class="screen-cell"><div class="phone"><div class="phone-screen"><div class="notch"></div><div class="status"><span>9:41</span><span class="dots"><i></i><i></i><i></i></span><span class="battery"></span></div>
+    <div class="body no-pad">
+      <div class="pl-hero" style="height:250px"><svg class="back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg><div class="art p-orange" style="width:118px;height:118px"></div><div class="title">Quarantine</div><div class="meta">Faraday · 2024 · 8 songs · 32 min</div></div>
+      <div class="pl-actions">
+        <div class="play-pill"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Play</div>
+        <div class="shuffle-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 3l3 3-3 3M20 6h-5l-9 12H4M7 6H4l3 3M20 18h-5l-3-4"/></svg>Shuffle</div>
+      </div>
+      <div style="padding:0 12px;">
+        <div class="song-row" style="padding:6px 0"><span class="dur" style="width:16px;text-align:center">1</span><div class="meta"><div class="t">Midnight Drive</div><div class="a">Faraday</div></div><span class="dur">3:52</span></div>
+        <div class="song-row" style="padding:6px 0"><span class="dur" style="width:16px;text-align:center">2</span><div class="meta"><div class="t">Quantum Solace</div><div class="a">Faraday</div></div><span class="dur">4:28</span></div>
+        <div class="song-row playing" style="padding:6px 0"><span class="dur" style="width:16px;text-align:center;color:var(--primary-2)">3</span><div class="meta"><div class="t">Don't Touch</div><div class="a">Faraday</div></div><span class="eq"><i></i><i></i><i></i></span></div>
+        <div class="song-row" style="padding:6px 0"><span class="dur" style="width:16px;text-align:center">4</span><div class="meta"><div class="t">Look Alive</div><div class="a">Faraday · feat. Meridian</div></div><span class="dur">3:33</span></div>
+      </div>
+    </div>
+  </div></div><div class="screen-caption"><span class="screen-index">07 · Detail</span><span class="screen-name">Album</span><span class="screen-note">Track numbering replaces artwork thumbs; artist headline uses the album accent.</span></div></div>
+  <div class="screen-cell"><div class="phone"><div class="phone-screen"><div class="notch"></div><div class="status"><span>9:41</span><span class="dots"><i></i><i></i><i></i></span><span class="battery"></span></div>
+    <div class="body">
+      <div class="queue-topbar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg><h3>Queue</h3></div>
+      <div class="q-label">Now Playing</div>
+      <div class="q-row current"><div class="art p-purple"></div><div class="meta"><div class="t">Binary Pulse</div><div class="a">Neon Eclipse</div></div><span class="eq"><i></i><i></i><i></i></span></div>
+      <div class="q-label">Up Next</div>
+      <div class="q-row"><div class="art p-purple"></div><div class="meta"><div class="t">Holographic Dreams</div><div class="a">Neon Eclipse</div></div><div class="drag"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="9" cy="6" r="1.5"/><circle cx="15" cy="6" r="1.5"/><circle cx="9" cy="12" r="1.5"/><circle cx="15" cy="12" r="1.5"/><circle cx="9" cy="18" r="1.5"/><circle cx="15" cy="18" r="1.5"/></svg></div></div>
+      <div class="q-row"><div class="art p-orange"></div><div class="meta"><div class="t">Midnight Drive</div><div class="a">Faraday</div></div><div class="drag"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="9" cy="6" r="1.5"/><circle cx="15" cy="6" r="1.5"/><circle cx="9" cy="12" r="1.5"/><circle cx="15" cy="12" r="1.5"/><circle cx="9" cy="18" r="1.5"/><circle cx="15" cy="18" r="1.5"/></svg></div></div>
+      <div class="q-row"><div class="art p-cyan"></div><div class="meta"><div class="t">TTDL</div><div class="a">Nova Heights</div></div><div class="drag"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="9" cy="6" r="1.5"/><circle cx="15" cy="6" r="1.5"/><circle cx="9" cy="12" r="1.5"/><circle cx="15" cy="12" r="1.5"/><circle cx="9" cy="18" r="1.5"/><circle cx="15" cy="18" r="1.5"/></svg></div></div>
+      <div class="q-row"><div class="art p-pink"></div><div class="meta"><div class="t">I Miss You</div><div class="a">Cascade</div></div><div class="drag"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="9" cy="6" r="1.5"/><circle cx="15" cy="6" r="1.5"/><circle cx="9" cy="12" r="1.5"/><circle cx="15" cy="12" r="1.5"/><circle cx="9" cy="18" r="1.5"/><circle cx="15" cy="18" r="1.5"/></svg></div></div>
+      <div class="q-row"><div class="art p-amber"></div><div class="meta"><div class="t">Solar Drift</div><div class="a">Neon Eclipse</div></div><div class="drag"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="9" cy="6" r="1.5"/><circle cx="15" cy="6" r="1.5"/><circle cx="9" cy="12" r="1.5"/><circle cx="15" cy="12" r="1.5"/><circle cx="9" cy="18" r="1.5"/><circle cx="15" cy="18" r="1.5"/></svg></div></div>
+    </div>
+  </div></div><div class="screen-caption"><span class="screen-index">08 · Order</span><span class="screen-name">Queue</span><span class="screen-note">Currently Playing pinned, drag handles on Up Next; edits sync to Media3 in real time.</span></div></div>
+  <div class="screen-cell"><div class="phone"><div class="phone-screen"><div class="notch"></div><div class="status"><span>9:41</span><span class="dots"><i></i><i></i><i></i></span><span class="battery"></span></div>
+    <div class="body">
+      <div class="set-head"><h2>Profile</h2></div>
+      <div class="profile-card"><div class="av">A</div><div><div class="n">AuraBeat User</div><div class="p">Premium · Since 2025</div></div></div>
+      <div class="set-row"><div class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l9 8-4 10H7L3 11z"/></svg></div><div class="info"><div class="t">Theme</div><div class="s">AuraBeat Dark</div></div><div class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div></div>
+      <div class="set-row"><div class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 12h4v8H4zM10 4h4v16h-4zM16 8h4v12h-4z"/></svg></div><div class="info"><div class="t">Audio Quality</div><div class="s">High · 320 kbps</div></div><div class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div></div>
+      <div class="set-row"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h3l3-9 3 18 3-12 2 3h4"/></svg></div><div class="info"><div class="t">Equalizer</div><div class="s">Off</div></div><div class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div></div>
+      <div class="set-row"><div class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 19h14"/></svg></div><div class="info"><div class="t">Downloads</div><div class="s">Wi-Fi only</div></div><div class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div></div>
+      <div class="set-row"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 1 1 12 0v5l2 3H4l2-3z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg></div><div class="info"><div class="t">Notifications</div><div class="s">Enabled</div></div><div class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div></div>
+      <div class="set-row"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 10a3 3 0 1 1 5 2c-1 .5-2 1-2 3"/><circle cx="12" cy="17" r="0.6" fill="currentColor"/></svg></div><div class="info"><div class="t">Help &amp; Support</div><div class="s">Coming soon</div></div><div class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div></div>
+    </div>
+    <div class="nav">
+      <div class="nav-item"><div class="nav-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 3 10v11h6v-6h6v6h6V10z"/></svg></div>Home</div>
+      <div class="nav-item"><div class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div>Search</div>
+      <div class="nav-item"><div class="nav-icon"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2" fill="#09070D"/></svg></div>Player</div>
+      <div class="nav-item"><div class="nav-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 6h16v2H4zM4 11h16v2H4zM4 16h10v2H4z"/></svg></div>Library</div>
+      <div class="nav-item active"><div class="nav-icon"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6z"/></svg></div>Profile</div>
+    </div>
+  </div></div><div class="screen-caption"><span class="screen-index">09 · Preferences</span><span class="screen-name">Settings</span><span class="screen-note">Glass profile card, iconified rows, current-value subtitles — no dead entries.</span></div></div>
+  <div class="screen-cell"><div class="phone"><div class="phone-screen"><div class="notch"></div><div class="status"><span>9:41</span><span class="dots"><i></i><i></i><i></i></span><span class="battery"></span></div>
+    <div class="ly-body">
+      <div class="ly-topbar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg><h4>Lyrics</h4><div style="width:16px"></div></div>
+      <div class="ly-song-strip"><div class="art p-purple"></div><div class="info"><div class="t">Binary Pulse</div><div class="a">Neon Eclipse</div></div></div>
+      <div class="lyric-lines">
+        <div class="line">In the neon dark I hear your heart</div>
+        <div class="line">Pulsing through the wires and stars</div>
+        <div class="line active">Every beat a signal</div>
+        <div class="line active">Every silence a scar</div>
+        <div class="line">Hold the light, hold the line</div>
+        <div class="line">In this quiet, we are fine</div>
+        <div class="line">Every note a memory</div>
+        <div class="line">Every memory a sign</div>
+      </div>
+      <div class="ly-progress"><span></span></div>
+      <div class="ly-mini-ctrl"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6L18 6v12z"/></svg><div class="p"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></div><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6l8.5 6L6 18zM16 6h2v12h-2z"/></svg></div>
+    </div>
+  </div></div><div class="screen-caption"><span class="screen-index">10 · Immersion</span><span class="screen-name">Lyrics</span><span class="screen-note">Ambient gradient, current-line highlight, mini controls at the base — ready for synced lyrics.</span></div></div>
+</div>
+<div class="notes">
+  <h3>Design principles</h3>
+  <p>Every screen inherits the same tokens, the same rounded language, and the same accent gradient. What changes is the density and the role of colour — Now Playing and Lyrics let the artwork bleed into the chrome, Home and Library keep the chrome quiet and let the content lead.</p>
+  <div class="notes-grid">
+    <div><h5>Motion</h5><ul><li>Waveform breathes only while playing</li><li>Album gradient crossfades on track change</li><li>Mini player slides up from behind the nav</li><li>Reduced-motion respected globally</li></ul></div>
+    <div><h5>Hierarchy</h5><ul><li>Display face reserved for identity and titles</li><li>Body face carries everything readable</li><li>Mono for timecodes, followers, kbps</li><li>Muted grey scale for secondary metadata</li></ul></div>
+    <div><h5>Accessibility</h5><ul><li>Contrast targets AAA on primary text</li><li>Touch targets ≥ 44dp on every control</li><li>All controls carry semantic labels</li><li>Focus ring visible on every interactive element</li></ul></div>
+    <div><h5>Native mapping</h5><ul><li>Media3 MediaSessionService drives playback</li><li>Single StateFlow is the source of truth</li><li>Compose Canvas draws the waveform live</li><li>Room persists favourites, recents, playlists</li></ul></div>
+  </div>
+</div>
+<script>
+(function(){var wf=document.getElementById('wf');if(!wf)return;var COUNT=46,progress=0.36,head=Math.floor(progress*COUNT),frag=document.createDocumentFragment();
+for(var i=0;i<COUNT;i++){var el=document.createElement('i');var s=Math.sin(i*12.9898)*43758.5453;var t=s-Math.floor(s);el.style.height=((0.25+t*0.75)*100)+'%';if(i<head)el.classList.add('on');if(i===head)el.classList.add('head');frag.appendChild(el);}
+wf.appendChild(frag);})();
+</script>
